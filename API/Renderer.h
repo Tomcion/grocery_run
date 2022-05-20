@@ -6,14 +6,7 @@
 #include "VertexArray.h"
 #include "IndexBuffer.h"
 #include "Shader.h"
-
-#include <assert.h>
-
-#define Call(x) ClearErrors(); x; assert(LogError(__FILE__, __LINE__));
-
-void ClearErrors();
-
-bool LogError(const char* file, int line);
+#include "Call.h"
 
 class Renderer
 {

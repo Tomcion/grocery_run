@@ -47,11 +47,11 @@ void GameObject::Render(const glm::mat4& proj)
 {
     shader->Bind();
     shader->setUniformMat4f("u_MVP", proj * glm::translate(glm::mat4(1.0f), position));
-    if(useTexture)
+    if (useTexture)
     {
         texture->Bind(0);
         shader->setUniform1i("u_Texture", 0);
-    }else{
+    } else {
         shader->setUniform4f("u_Color", color.r, color.g, color.b, color.a);
     }
     Renderer::Draw(*vao, *ibo, *shader);

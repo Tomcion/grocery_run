@@ -1,5 +1,4 @@
 #include "VertexArray.h"
-#include "Renderer.h"
 
 VertexArray::VertexArray()
 {
@@ -23,10 +22,10 @@ void VertexArray::Buffer(const VertexBuffer& vbo)
     long offset = 0;
     
     int stride = 0;
-    for(int i = 0; i < attributeLenghts.size(); i++)
+    for (int i = 0; i < attributeLenghts.size(); i++)
         stride += attributeLenghts[i] * sizeof(float);
     
-    for(int i = 0; i < attributeLenghts.size(); i++)
+    for (int i = 0; i < attributeLenghts.size(); i++)
     {
         Call(glEnableVertexAttribArray(i));
         Call(glVertexAttribPointer(i, attributeLenghts[i], GL_FLOAT, GL_FALSE, stride, (const void*)offset));

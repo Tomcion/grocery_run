@@ -2,6 +2,8 @@
 #define VERTEX_BUFFER_H
 
 #include <GL/glew.h>
+#include "Call.h"
+
 
 class VertexBuffer
 {

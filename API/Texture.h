@@ -2,8 +2,9 @@
 #define TEXTURE_H
 
 #include "../3rd_party/stb_image/stb_image.h"
+#include <GL/glew.h>
+#include "Call.h"
 
-#include "Renderer.h"
 
 class Texture
 {

@@ -1,5 +1,3 @@
-#include <iostream>
-
 #include "Texture.h"
 
 
@@ -9,7 +7,7 @@ Texture::Texture(const char* filepath)
     stbi_set_flip_vertically_on_load(1);
     image_buffer = stbi_load(filepath, &width, &height, &BPP, 4);
 
-    if(image_buffer == nullptr)
+    if (image_buffer == nullptr)
     {
         std::cout << "Failed to load image: " << filepath << std::endl;
         std::cout << "Reason: " << stbi_failure_reason() << std::endl;

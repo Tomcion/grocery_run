@@ -1,11 +1,5 @@
 #include "Shader.h"
 
-#include "Renderer.h"
-
-#include <fstream>
-#include <sstream>
-#include <iostream>
-
 Shader::Shader(const char* path)
 {
     Call(GLuint program = glCreateProgram());
@@ -42,20 +36,20 @@ std::tuple<std::string, std::string> Shader::ParseShader(const char* path)
 
     ShaderType currentShader = NONE;
 
-    if(!file.good()) std::cout << "Failed to load the shaders file \n";
+    if (!file.good()) std::cout << "Failed to load the shaders file \n";
 
     while(getline(file, line))
     {
-        if(line.find("#shader") != std::string::npos)
+        if (line.find("#shader") != std::string::npos)
         {
-            if(line.find("vertex") != std::string::npos)
+            if (line.find("vertex") != std::string::npos)
             {
                 currentShader = VERTEX;
-            }else if(line.find("fragment") != std::string::npos)
+            } else if (line.find("fragment") != std::string::npos)
             {
                 currentShader = FRAGMENT;
             }
-        }else{
+        } else {
             shaders[(int)currentShader] << line << std::endl;
         }
     }
@@ -72,7 +66,7 @@ GLuint Shader::CompileShader(GLenum type, const std::string& source)
 
     GLint isCompiled = 0;
     Call(glGetShaderiv(shader, GL_COMPILE_STATUS, &isCompiled));
-    if(isCompiled == GL_FALSE)
+    if (isCompiled == GL_FALSE)
     {
         GLint maxLength = 0;
         Call(glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &maxLength));
@@ -114,7 +108,7 @@ int Shader::getUniformLocation(const char* uniform_name)
 {
     int location = glGetUniformLocation(renderer_id, uniform_name);
 
-    if(location == -1) std::cout << "[Warning]: Uniform '" << uniform_name << "' not found!\n";
+    if (location == -1) std::cout << "[Warning]: Uniform '" << uniform_name << "' not found!\n";
 
     return location;
 }

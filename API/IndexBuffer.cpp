@@ -1,5 +1,4 @@
 #include "IndexBuffer.h"
-#include "Renderer.h"
 
 IndexBuffer::IndexBuffer(unsigned int* indices, int count)
     : count(count)

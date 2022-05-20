@@ -2,6 +2,7 @@
 #define INDEX_BUFFER_H
 
 #include <GL/glew.h>
+#include "Call.h"
 
 class IndexBuffer
 {
